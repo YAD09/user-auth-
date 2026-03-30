@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Dashboard | Web Platform</title>
+    <meta name="description" content="Your secure dashboard environment.">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container dashboard-container">
+        <div class="glass-card">
+            <div class="dashboard-header">
+                <h2>Welcome, <span id="user-name">Loading...</span></h2>
+                <button id="logout-btn" class="btn-outline">Sign Out</button>
+            </div>
+            
+            <div class="dashboard-content">
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;">
+                    You have successfully authenticated into the secure environment. 
+                </p>
+
+                <div style="background: rgba(15, 23, 42, 0.6); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                    <h3 style="margin-bottom: 1rem; font-size: 1.2rem;">Implemented Security Features:</h3>
+                    <ul style="color: var(--text-secondary); padding-left: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <li><strong>Input Validation & Sanitization:</strong> Prevents malicious payload injection (e.g., XSS) via strict server and client validation.</li>
+                        <li><strong>SQL Injection Protection:</strong> SQLite parameterised queries strictly separate query logic from data.</li>
+                        <li><strong>Secure Session Management:</strong> HttpOnly, strict SameSite cookies mapping to securely managed server sessions (SQLite Store).</li>
+                        <li><strong>Password Security:</strong> Passwords are cryptographically hashed using generic-purpose secure hashing algorithm (bcrypt).</li>
+                        <li><strong>Protection Headers:</strong> Strict Content Security Policy (CSP) and multiple attack vectors managed via Helmet.js.</li>
+                        <li><strong>Rate Limiting:</strong> Endpoint protection against brute-force attacks on application layer.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/js/dashboard.js"></script>
+</body>
+</html>
