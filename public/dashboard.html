@@ -8,28 +8,55 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <div class="container dashboard-container">
-        <div class="glass-card">
-            <div class="dashboard-header">
-                <h2>Welcome, <span id="user-name">Loading...</span></h2>
-                <button id="logout-btn" class="btn-outline">Sign Out</button>
+    <div class="container" style="max-width: 900px;">
+        <div class="glass-card fade-in">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+                <div>
+                    <h2 style="font-size: 1.5rem;">Secure Vault</h2>
+                    <p style="color: var(--text-secondary); font-size: 0.875rem;">Welcome back, <span id="user-name" style="color: var(--accent); font-weight: 600;">User</span></p>
+                </div>
+                <button id="logout-btn" style="background: transparent; border: 1px solid var(--border-color); color: var(--text-primary); padding: 0.6rem 1.2rem; border-radius: 10px; cursor: pointer; transition: all 0.2s ease;">Sign Out</button>
             </div>
             
             <div class="dashboard-content">
-                <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;">
-                    You have successfully authenticated into the secure environment. 
-                </p>
+                <div style="display: flex; align-items: center; gap: 0.75rem; color: var(--success); font-weight: 500; font-size: 0.9rem; margin-bottom: 2rem;">
+                    <span class="pulse-indicator" style="width: 8px; height: 8px;"></span>
+                    Your connection is encrypted and session is active.
+                </div>
 
-                <div style="background: rgba(15, 23, 42, 0.6); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
-                    <h3 style="margin-bottom: 1rem; font-size: 1.2rem;">Implemented Security Features:</h3>
-                    <ul style="color: var(--text-secondary); padding-left: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
-                        <li><strong>Input Validation & Sanitization:</strong> Prevents malicious payload injection (e.g., XSS) via strict server and client validation.</li>
-                        <li><strong>SQL Injection Protection:</strong> SQLite parameterised queries strictly separate query logic from data.</li>
-                        <li><strong>Secure Session Management:</strong> HttpOnly, strict SameSite cookies mapping to securely managed server sessions (SQLite Store).</li>
-                        <li><strong>Password Security:</strong> Passwords are cryptographically hashed using generic-purpose secure hashing algorithm (bcrypt).</li>
-                        <li><strong>Protection Headers:</strong> Strict Content Security Policy (CSP) and multiple attack vectors managed via Helmet.js.</li>
-                        <li><strong>Rate Limiting:</strong> Endpoint protection against brute-force attacks on application layer.</li>
-                    </ul>
+                <div class="dashboard-grid">
+                    <!-- Security Card 1 -->
+                    <div class="security-card slide-up" style="animation-delay: 0.1s;">
+                        <div class="icon-box">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                        </div>
+                        <h4 style="margin-bottom: 0.5rem;">Access Control</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">Robust login protection with session fixation defense and HttpOnly cookies.</p>
+                    </div>
+
+                    <!-- Security Card 2 -->
+                    <div class="security-card slide-up" style="animation-delay: 0.2s;">
+                        <div class="icon-box" style="color: #10b981; background: rgba(16, 185, 129, 0.1);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <h4 style="margin-bottom: 0.5rem;">Data Integrity</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">SQL Injection mitigation via parameterised queries and strict payload sanitization.</p>
+                    </div>
+
+                    <!-- Security Card 3 -->
+                    <div class="security-card slide-up" style="animation-delay: 0.3s;">
+                        <div class="icon-box" style="color: #a78bfa; background: rgba(167, 139, 250, 0.1);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3y-3.5 3.5Z"></path></svg>
+                        </div>
+                        <h4 style="margin-bottom: 0.5rem;">XSS Shield</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">Modern DOM tree mutation and CSP headers block malicious script execution.</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2.5rem; padding: 1.5rem; background: rgba(59, 130, 246, 0.05); border: 1px dashed rgba(59, 130, 246, 0.3); border-radius: 12px; text-align: center;">
+                    <p style="font-size: 0.9rem; color: var(--text-secondary);">
+                        <strong style="color: var(--accent);">Python Audit Tool:</strong> Run <code>python scripts/audit.py</code> locally to generate a terminal-based security health report.
+                    </p>
                 </div>
             </div>
         </div>
@@ -38,3 +65,4 @@
     <script src="/js/dashboard.js"></script>
 </body>
 </html>
+
