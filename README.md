@@ -82,3 +82,41 @@ npm start
 ├── server.js                 # Primary Express Application
 └── package.json
 ```
+
+## 🔐 Environment Variables
+
+Create a `.env` file in the root of the project to configure your environment variables:
+
+```env
+PORT=3000
+SESSION_SECRET=your_super_secure_secret_key_here
+NODE_ENV=development
+```
+
+- `PORT`: The port on which the server will run (default is `3000`).
+- `SESSION_SECRET`: A long, random string used for signing the session ID cookie. Replace the default in production.
+- `NODE_ENV`: Set to `production` when deploying to strict secure cookie settings.
+
+## 📡 API Endpoints
+
+The application exposes the following REST API endpoints:
+
+### Authentication Endpoints
+
+These endpoints are strictly rate-limited and secured:
+
+| Method | Endpoint | Description | Payload Constraints |
+| --- | --- | --- | --- |
+| `POST` | `/api/auth/signup` | Registers a new user. | `username` (3-30 chars, alphanumeric), `email`, `password` (min 8 chars, mixed case, special char) |
+| `POST` | `/api/auth/login` | Authenticates a user and starts session. | `username`, `password` |
+| `GET` | `/api/auth/me` | Fetches active session state. | Requires active session cookie. |
+| `POST` | `/api/auth/logout` | Destroys current session cookie. | N/A |
+
+## 🛠️ Error Handling & Troubleshooting
+
+- **`Too many requests` / `Rate Limited`**: The application restricts excessive calls to authentication endpoints. Wait 15 minutes if you hit a limit.
+- **SQLite Database Errors**: Ensure the `db/` directory exists and has write permissions. Initialize the databases properly using `npm run init-db` before running `npm start`.
+
+## 📜 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
