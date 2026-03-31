@@ -56,7 +56,7 @@ npm run init-db
 ```bash
 npm start
 ```
-*The secure platform runs flawlessly at `http://localhost:3000`*
+*The Secure platform runs flawlessly at `http://localhost:3000`*
 
 ## 📁 Project Structure
 
