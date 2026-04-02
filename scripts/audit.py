@@ -23,8 +23,10 @@ def run_audit():
         print(f"{Colors.WARNING}Please run 'npm run init-db' first.{Colors.ENDC}")
         return
 
-    print(f"{Colors.HEADER}{Colors.BOLD}--- SECURE AUTH SYSTEM: SECURITY AUDIT ---{Colors.ENDC}")
-    print(f"Started at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+    print(f"{Colors.OKCYAN}{'='*50}{Colors.ENDC}")
+    print(f"{Colors.HEADER}{Colors.BOLD}   🛡️  SECURE AUTH SYSTEM: SECURITY AUDIT  🛡️{Colors.ENDC}")
+    print(f"{Colors.OKCYAN}{'='*50}{Colors.ENDC}")
+    print(f"Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
 
     try:
         conn = sqlite3.connect(db_path)

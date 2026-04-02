@@ -58,6 +58,13 @@ npm start
 ```
 *The Secure platform runs flawlessly at `http://localhost:3000`*
 
+### 🛠️ Python Management Tools
+The repository includes several Python-based administrative tools:
+1. **Security Audit**: `python scripts/audit.py`
+   - Scans the database for security integrity and unhashed passwords.
+2. **Database Management**: `python scripts/database_tool.py --list`
+   - Manage registered users directly from the terminal (List, Search, Delete).
+
 ## 📁 Project Structure
 
 ```text

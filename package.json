@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "init-db": "node db/init.js"
+    "init-db": "node db/init.js",
+    "python:audit": "python scripts/audit.py",
+    "python:db": "python scripts/database_tool.py"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
