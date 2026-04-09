@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "init-db": "node db/init.js",
+    "build": "npm run init-db",
     "python:audit": "python scripts/audit.py",
     "python:db": "python scripts/database_tool.py"
   },

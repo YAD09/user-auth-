@@ -73,6 +73,12 @@ app.get('/', (req, res) => {
     }
 });
 
-app.listen(port, () => {
-    console.log(`Secure application running at http://localhost:${port}`);
-});
+// Allow Vercel to use the app in serverless mode
+module.exports = app;
+
+if (require.main === module) {
+    app.listen(port, () => {
+        console.log(`Secure application running at http://localhost:${port}`);
+    });
+}
+
