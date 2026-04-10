@@ -1,6 +1,42 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('signup-form');
     const submitBtn = document.getElementById('submit-btn');
+    const generatePasswordBtn = document.getElementById('generate-password-btn');
+    const togglePasswordBtn = document.getElementById('toggle-password-btn');
+    const passwordInput = document.getElementById('password');
+
+    if (generatePasswordBtn && passwordInput) {
+        generatePasswordBtn.addEventListener('click', () => {
+            const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
+            let generatedPassword = "";
+            let hasUpper = false, hasLower = false, hasNum = false, hasSpec = false;
+            
+            while (!(hasUpper && hasLower && hasNum && hasSpec)) {
+                generatedPassword = "";
+                hasUpper = false; hasLower = false; hasNum = false; hasSpec = false;
+                for (let i = 0; i < 16; i++) {
+                    const char = chars.charAt(Math.floor(Math.random() * chars.length));
+                    generatedPassword += char;
+                    if (/[A-Z]/.test(char)) hasUpper = true;
+                    if (/[a-z]/.test(char)) hasLower = true;
+                    if (/[0-9]/.test(char)) hasNum = true;
+                    if (/[^A-Za-z0-9]/.test(char)) hasSpec = true;
+                }
+            }
+            passwordInput.value = generatedPassword;
+            passwordInput.type = "text"; // Show the generated password
+        });
+    }
+
+    if (togglePasswordBtn && passwordInput) {
+        togglePasswordBtn.addEventListener('click', () => {
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+            } else {
+                passwordInput.type = 'password';
+            }
+        });
+    }
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();

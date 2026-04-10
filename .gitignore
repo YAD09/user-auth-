@@ -2,3 +2,6 @@ node_modules
 .env
 db/database.sqlite
 db/sessions.sqlite
+
+# Local Netlify folder
+.netlify

@@ -31,8 +31,16 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" class="form-control" autocomplete="new-password" required>
+                    <label for="password" style="display: flex; justify-content: space-between; align-items: center;">
+                        <span>Password</span>
+                        <button type="button" id="generate-password-btn" class="btn-generate">✨ AI Generate</button>
+                    </label>
+                    <div style="position: relative;">
+                        <input type="password" id="password" class="form-control" style="padding-right: 40px;" autocomplete="new-password" required>
+                        <button type="button" id="toggle-password-btn" class="btn-toggle-password" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-secondary); cursor: pointer;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                        </button>
+                    </div>
                     <span class="error-message" id="password-error"></span>
                     <small style="color: var(--text-secondary); font-size: 0.75rem; display: block; margin-top: 0.25rem;">
                         Requires 8+ chars, uppercase, lowercase, number, and special character.
